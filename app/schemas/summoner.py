@@ -2,8 +2,8 @@ from pydantic import BaseModel, Field
 
 
 class SummonerResponse(BaseModel):
-    id: str
-    account_id: str = Field(alias="accountId")
+    id: str | None = None
+    account_id: str | None = Field(default=None, alias="accountId")
     puuid: str
     profile_icon_id: int = Field(alias="profileIconId")
     revision_date: int = Field(alias="revisionDate")
