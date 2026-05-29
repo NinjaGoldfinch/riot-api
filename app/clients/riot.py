@@ -144,6 +144,18 @@ class RiotClient:
             lambda: self._client.get_lol_summoner_v4_by_puuid(region=platform, puuid=puuid),
         )
 
+    async def get_champion_rotation(self, platform: PlatformRegion) -> dict[str, Any]:
+        return await self._request(
+            "get_champion_rotation",
+            lambda: self._client.get_lol_champion_v3_rotation(region=platform),
+        )
+
+    async def get_lol_status(self, platform: PlatformRegion) -> dict[str, Any]:
+        return await self._request(
+            "get_lol_status",
+            lambda: self._client.get_lol_status_v4_platform_data(region=platform),
+        )
+
     async def get_ranked_entries_by_summoner_id(
         self,
         platform: PlatformRegion,
@@ -190,6 +202,25 @@ class RiotClient:
         return await self._request(
             "get_match",
             lambda: self._client.get_lol_match_v5_match(region=region, id=match_id),
+        )
+
+    async def get_active_game_by_puuid(
+        self,
+        platform: PlatformRegion,
+        puuid: str,
+    ) -> dict[str, Any]:
+        return await self._request(
+            "get_active_game_by_puuid",
+            lambda: self._client.get_lol_spectator_v5_active_game_by_summoner(
+                region=platform,
+                puuid=puuid,
+            ),
+        )
+
+    async def get_featured_games(self, platform: PlatformRegion) -> dict[str, Any]:
+        return await self._request(
+            "get_featured_games",
+            lambda: self._client.get_lol_spectator_v5_featured_games(region=platform),
         )
 
 

@@ -34,6 +34,18 @@ def test_settings_reject_negative_cache_ttl() -> None:
     with pytest.raises(ValidationError):
         Settings(_env_file=None, cache_ttl_seconds=-1)
 
+    with pytest.raises(ValidationError):
+        Settings(_env_file=None, champion_rotation_cache_ttl_seconds=-1)
+
+    with pytest.raises(ValidationError):
+        Settings(_env_file=None, status_cache_ttl_seconds=-1)
+
+    with pytest.raises(ValidationError):
+        Settings(_env_file=None, spectator_active_game_cache_ttl_seconds=-1)
+
+    with pytest.raises(ValidationError):
+        Settings(_env_file=None, spectator_featured_games_cache_ttl_seconds=-1)
+
 
 def test_settings_reject_invalid_rate_limit_values() -> None:
     with pytest.raises(ValidationError):

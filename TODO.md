@@ -120,6 +120,39 @@
 
 ## Upcoming Stages
 
+- [ ] Implement remaining Riot catalog services from the current Developer Portal list.
+  - [ ] `CHAMPION-MASTERY-V4`
+  - [ ] `CHAMPION-V3`
+  - [ ] `CLASH-V1`
+  - [ ] `LEAGUE-EXP-V4`
+  - [ ] `LOL-CHALLENGES-V1`
+  - [ ] `LOL-RSO-MATCH-V1`
+  - [ ] `LOL-STATUS-V4`
+  - [ ] `LOR-DECK-V1`
+  - [ ] `LOR-INVENTORY-V1`
+  - [ ] `LOR-MATCH-V1`
+  - [ ] `LOR-RANKED-V1`
+  - [ ] `LOR-STATUS-V1`
+  - [ ] `RIFTBOUND-CONTENT-V1`
+  - [ ] `SPECTATOR-TFT-V5`
+  - [ ] `SPECTATOR-V5`
+  - [ ] `TFT-LEAGUE-V1`
+  - [ ] `TFT-MATCH-V1`
+  - [ ] `TFT-STATUS-V1`
+  - [ ] `TFT-SUMMONER-V1`
+  - [ ] `TOURNAMENT-STUB-V5`
+  - [ ] `TOURNAMENT-V5`
+  - [ ] `VAL-CONSOLE-MATCH-V1`
+  - [ ] `VAL-CONSOLE-RANKED-V1`
+  - [ ] `VAL-CONTENT-V1`
+  - [ ] `VAL-MATCH-V1`
+  - [ ] `VAL-RANKED-V1`
+  - [ ] `VAL-STATUS-V1`
+- [ ] Continue using central Riot client error translation for upstream `404`, `429`, and `5xx`.
+- [ ] Continue applying app/service/method local rate limiting to every new public route.
+- [ ] Add per-resource cache TTLs for every cacheable Riot read endpoint.
+- [ ] Prefer short TTLs for volatile live-game/status data and longer TTLs for static or completed data.
+- [x] Start catalog expansion with `CHAMPION-V3`, `LOL-STATUS-V4`, and `SPECTATOR-V5`.
 - Future: optional Riot rate-limit discovery cache that learns observed limits by region, service, and method from live Riot response headers.
 - Future: stale-while-revalidate caching for hot player data so stale values can be served briefly while Riot refreshes in the background.
 - Future: tune hot endpoint TTLs lower for ranked data, summoner details, and match history while keeping completed match details long-lived.
