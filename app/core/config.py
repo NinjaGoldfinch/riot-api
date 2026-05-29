@@ -24,6 +24,10 @@ class Settings(BaseSettings):
     ranked_cache_ttl_seconds: int = Field(default=120, ge=0)
     match_history_cache_ttl_seconds: int = Field(default=60, ge=0)
     match_detail_cache_ttl_seconds: int = Field(default=86_400, ge=0)
+    champion_rotation_cache_ttl_seconds: int = Field(default=3_600, ge=0)
+    status_cache_ttl_seconds: int = Field(default=60, ge=0)
+    spectator_active_game_cache_ttl_seconds: int = Field(default=15, ge=0)
+    spectator_featured_games_cache_ttl_seconds: int = Field(default=30, ge=0)
     rate_limit_enabled: bool = True
     rate_limit_requests: int = Field(default=60, ge=1)
     rate_limit_window_seconds: int = Field(default=60, ge=1)

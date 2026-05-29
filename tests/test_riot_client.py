@@ -136,6 +136,29 @@ async def test_get_summoner_by_puuid_calls_pulsefire_method() -> None:
     )
 
 
+async def test_get_champion_rotation_calls_pulsefire_method() -> None:
+    pulsefire_client = AsyncMock()
+    pulsefire_client.get_lol_champion_v3_rotation.return_value = {"freeChampionIds": []}
+    client = RiotClient("test-key", pulsefire_client=pulsefire_client)
+
+    await client.get_champion_rotation("oc1")
+
+    pulsefire_client.get_lol_champion_v3_rotation.assert_awaited_once_with(region="oc1")
+
+
+async def test_get_lol_status_calls_pulsefire_method() -> None:
+    pulsefire_client = AsyncMock()
+    pulsefire_client.get_lol_status_v4_platform_data.return_value = {
+        "id": "oc1",
+        "name": "Oceania",
+    }
+    client = RiotClient("test-key", pulsefire_client=pulsefire_client)
+
+    await client.get_lol_status("oc1")
+
+    pulsefire_client.get_lol_status_v4_platform_data.assert_awaited_once_with(region="oc1")
+
+
 async def test_get_ranked_entries_by_summoner_id_calls_pulsefire_method() -> None:
     pulsefire_client = AsyncMock()
     pulsefire_client.get_lol_league_v4_entries_by_summoner.return_value = []
@@ -172,6 +195,31 @@ async def test_get_match_calls_pulsefire_method() -> None:
     await client.get_match("sea", "OC1_1")
 
     pulsefire_client.get_lol_match_v5_match.assert_awaited_once_with(region="sea", id="OC1_1")
+
+
+async def test_get_active_game_by_puuid_calls_pulsefire_method() -> None:
+    pulsefire_client = AsyncMock()
+    pulsefire_client.get_lol_spectator_v5_active_game_by_summoner.return_value = {
+        "gameId": 123
+    }
+    client = RiotClient("test-key", pulsefire_client=pulsefire_client)
+
+    await client.get_active_game_by_puuid("oc1", "puuid")
+
+    pulsefire_client.get_lol_spectator_v5_active_game_by_summoner.assert_awaited_once_with(
+        region="oc1",
+        puuid="puuid",
+    )
+
+
+async def test_get_featured_games_calls_pulsefire_method() -> None:
+    pulsefire_client = AsyncMock()
+    pulsefire_client.get_lol_spectator_v5_featured_games.return_value = {"gameList": []}
+    client = RiotClient("test-key", pulsefire_client=pulsefire_client)
+
+    await client.get_featured_games("oc1")
+
+    pulsefire_client.get_lol_spectator_v5_featured_games.assert_awaited_once_with(region="oc1")
 
 
 @pytest.mark.parametrize(

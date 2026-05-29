@@ -43,6 +43,10 @@ SUMMONER_CACHE_TTL_SECONDS=300
 RANKED_CACHE_TTL_SECONDS=120
 MATCH_HISTORY_CACHE_TTL_SECONDS=60
 MATCH_DETAIL_CACHE_TTL_SECONDS=86400
+CHAMPION_ROTATION_CACHE_TTL_SECONDS=3600
+STATUS_CACHE_TTL_SECONDS=60
+SPECTATOR_ACTIVE_GAME_CACHE_TTL_SECONDS=15
+SPECTATOR_FEATURED_GAMES_CACHE_TTL_SECONDS=30
 ```
 
 Only Account-V1 has a default routing region. Other endpoints require explicit platform or
@@ -92,11 +96,15 @@ Open:
 - `GET /version`
 - `GET /api/v1/account/{game_name}/{tag_line}`
 - `GET /api/v1/account/{region}/{game_name}/{tag_line}`
+- `GET /api/v1/champion/{platform}/rotation`
 - `GET /api/v1/summoner/{platform}/{puuid}`
 - `GET /api/v1/ranked/{platform}/{puuid}`
 - `GET /api/v1/ranked/summoner-id/{platform}/{summoner_id}`
 - `GET /api/v1/matches/{region}/{puuid}`
 - `GET /api/v1/matches/{region}/detail/{match_id}`
+- `GET /api/v1/spectator/{platform}/featured`
+- `GET /api/v1/spectator/{platform}/active/{puuid}`
+- `GET /api/v1/status/{platform}`
 - `GET /api/v2/player/{platform}/{game_name}/{tag_line}/summary`
 
 Region-like path values are normalized per endpoint. For example, `/api/v1/account/oc1/...`
@@ -170,10 +178,15 @@ SUMMONER_CACHE_TTL_SECONDS=300
 RANKED_CACHE_TTL_SECONDS=120
 MATCH_HISTORY_CACHE_TTL_SECONDS=60
 MATCH_DETAIL_CACHE_TTL_SECONDS=86400
+CHAMPION_ROTATION_CACHE_TTL_SECONDS=3600
+STATUS_CACHE_TTL_SECONDS=60
+SPECTATOR_ACTIVE_GAME_CACHE_TTL_SECONDS=15
+SPECTATOR_FEATURED_GAMES_CACHE_TTL_SECONDS=30
 ```
 
 Set a TTL to `0` to disable caching for that resource. Match details use a long TTL because
-completed matches do not normally change.
+completed matches do not normally change. Spectator and status endpoints use short TTLs
+because live game state and incident data can change quickly.
 
 The Riot-backed endpoints are scaffolded through a thin internal client wrapper so route and
 service code do not depend directly on Pulsefire.
