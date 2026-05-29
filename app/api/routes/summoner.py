@@ -1,3 +1,5 @@
+from typing import Annotated
+
 from fastapi import APIRouter, Depends
 
 from app.clients.riot import RiotClient, get_riot_client
@@ -12,7 +14,7 @@ router = APIRouter(prefix="/summoner", tags=["Summoner"])
 async def get_summoner_by_puuid(
     platform: str,
     puuid: str,
-    riot_client: RiotClient = Depends(get_riot_client),
+    riot_client: Annotated[RiotClient, Depends(get_riot_client)],
 ) -> SummonerResponse:
     platform_region: PlatformRegion = parse_platform_region(platform)
     service = SummonerService(riot_client)

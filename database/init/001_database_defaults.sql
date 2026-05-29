@@ -1,0 +1,3 @@
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
+ALTER DATABASE riot_api SET timezone TO 'UTC';
