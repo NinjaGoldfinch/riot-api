@@ -14,8 +14,14 @@ cp .env.example .env
 
 Add your Riot development key to `.env`.
 
-More detailed setup notes are in [docs/setup.md](docs/setup.md). The service architecture is
-documented in [docs/architecture.md](docs/architecture.md).
+More detailed project notes:
+
+- [API reference](docs/api.md)
+- [OpenAPI spec](docs/openapi.json)
+- [Setup](docs/setup.md)
+- [Configuration](docs/configuration.md)
+- [Architecture](docs/architecture.md)
+- [Development guide](docs/development.md)
 
 The default region configuration is set for OCE:
 
@@ -78,6 +84,7 @@ Open:
 - API docs: <http://127.0.0.1:8000/docs>
 - Health check: <http://127.0.0.1:8000/health>
 - Version: <http://127.0.0.1:8000/version>
+- Generated OpenAPI spec in source control: [docs/openapi.json](docs/openapi.json)
 
 ## Initial Endpoints
 
@@ -94,6 +101,12 @@ Open:
 
 Region-like path values are normalized per endpoint. For example, `/api/v1/account/oc1/...`
 uses Account-V1 routing `asia`, while `/api/v1/matches/oc1/...` uses Match-V5 routing `sea`.
+
+Regenerate the checked-in OpenAPI spec after route or schema changes:
+
+```bash
+scripts/export-openapi.sh
+```
 
 ## Rate Limiting
 

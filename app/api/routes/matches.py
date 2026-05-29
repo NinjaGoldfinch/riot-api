@@ -1,6 +1,7 @@
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Query
+from fastapi.responses import JSONResponse
 
 from app.clients.riot import RiotClient, get_riot_client
 from app.core.regions import (
@@ -22,6 +23,22 @@ async def get_match_detail(
     routing_region: RoutingRegion = normalize_match_routing_region(region)
     service = MatchService(riot_client)
     return await service.get_match_detail(routing_region, match_id)
+
+
+@router.get("/detail/{match_id}", include_in_schema=False)
+async def get_match_detail_missing_region(match_id: str) -> JSONResponse:
+    return JSONResponse(
+        status_code=422,
+        content={
+            "detail": {
+                "code": "INVALID_REGION",
+                "message": (
+                    "Match detail requests require a routing or platform region. "
+                    f"Use /api/v1/matches/{{region}}/detail/{match_id}."
+                ),
+            }
+        },
+    )
 
 
 @router.get("/{region}/{puuid}", response_model=MatchHistoryResponse)

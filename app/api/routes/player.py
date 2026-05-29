@@ -17,16 +17,16 @@ from app.services.player_service import PlayerService
 router = APIRouter(prefix="/player", tags=["Player"])
 
 
-@router.get("/{region}/{game_name}/{tag_line}/summary", response_model=PlayerSummaryResponse)
+@router.get("/{platform}/{game_name}/{tag_line}/summary", response_model=PlayerSummaryResponse)
 async def get_player_summary(
-    region: str,
+    platform: str,
     game_name: str,
     tag_line: str,
     riot_client: Annotated[RiotClient, Depends(get_riot_client)],
     match_start: Annotated[int, Query(ge=0)] = 0,
     match_count: Annotated[int, Query(ge=1, le=20)] = 5,
 ) -> PlayerSummaryResponse:
-    platform_region: PlatformRegion = parse_platform_region(region)
+    platform_region: PlatformRegion = parse_platform_region(platform)
     account_region: AccountRoutingRegion = normalize_account_routing_region(platform_region)
     match_region: RoutingRegion = normalize_match_routing_region(platform_region)
     service = PlayerService(riot_client)

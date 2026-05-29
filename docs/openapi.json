@@ -1,0 +1,1388 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Riot API",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/v1/account/{game_name}/{tag_line}": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Get Account By Riot Id With Default Region",
+        "operationId": "get_account_by_riot_id_with_default_region_api_v1_account__game_name___tag_line__get",
+        "parameters": [
+          {
+            "name": "game_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Game Name"
+            }
+          },
+          {
+            "name": "tag_line",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Tag Line"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/account/{region}/{game_name}/{tag_line}": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Get Account By Riot Id",
+        "operationId": "get_account_by_riot_id_api_v1_account__region___game_name___tag_line__get",
+        "parameters": [
+          {
+            "name": "region",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Region"
+            }
+          },
+          {
+            "name": "game_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Game Name"
+            }
+          },
+          {
+            "name": "tag_line",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Tag Line"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/champion/{platform}/rotation": {
+      "get": {
+        "tags": [
+          "Champion"
+        ],
+        "summary": "Get Champion Rotation",
+        "operationId": "get_champion_rotation_api_v1_champion__platform__rotation_get",
+        "parameters": [
+          {
+            "name": "platform",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Platform"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChampionRotationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/summoner/{platform}/{puuid}": {
+      "get": {
+        "tags": [
+          "Summoner"
+        ],
+        "summary": "Get Summoner By Puuid",
+        "operationId": "get_summoner_by_puuid_api_v1_summoner__platform___puuid__get",
+        "parameters": [
+          {
+            "name": "platform",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Platform"
+            }
+          },
+          {
+            "name": "puuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Puuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SummonerResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ranked/{platform}/{puuid}": {
+      "get": {
+        "tags": [
+          "Ranked"
+        ],
+        "summary": "Get Ranked Entries By Puuid",
+        "operationId": "get_ranked_entries_by_puuid_api_v1_ranked__platform___puuid__get",
+        "parameters": [
+          {
+            "name": "platform",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Platform"
+            }
+          },
+          {
+            "name": "puuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Puuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RankedResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ranked/summoner-id/{platform}/{summoner_id}": {
+      "get": {
+        "tags": [
+          "Ranked"
+        ],
+        "summary": "Get Ranked Entries By Summoner Id",
+        "operationId": "get_ranked_entries_by_summoner_id_api_v1_ranked_summoner_id__platform___summoner_id__get",
+        "parameters": [
+          {
+            "name": "platform",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Platform"
+            }
+          },
+          {
+            "name": "summoner_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Summoner Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RankedResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/matches/{region}/detail/{match_id}": {
+      "get": {
+        "tags": [
+          "Matches"
+        ],
+        "summary": "Get Match Detail",
+        "operationId": "get_match_detail_api_v1_matches__region__detail__match_id__get",
+        "parameters": [
+          {
+            "name": "region",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Region"
+            }
+          },
+          {
+            "name": "match_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Match Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchDetailResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/matches/{region}/{puuid}": {
+      "get": {
+        "tags": [
+          "Matches"
+        ],
+        "summary": "Get Match History",
+        "operationId": "get_match_history_api_v1_matches__region___puuid__get",
+        "parameters": [
+          {
+            "name": "region",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Region"
+            }
+          },
+          {
+            "name": "puuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Puuid"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Start"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Count"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchHistoryResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/spectator/{platform}/featured": {
+      "get": {
+        "tags": [
+          "Spectator"
+        ],
+        "summary": "Get Featured Games",
+        "operationId": "get_featured_games_api_v1_spectator__platform__featured_get",
+        "parameters": [
+          {
+            "name": "platform",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Platform"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeaturedGamesResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/spectator/{platform}/active/{puuid}": {
+      "get": {
+        "tags": [
+          "Spectator"
+        ],
+        "summary": "Get Active Game By Puuid",
+        "operationId": "get_active_game_by_puuid_api_v1_spectator__platform__active__puuid__get",
+        "parameters": [
+          {
+            "name": "platform",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Platform"
+            }
+          },
+          {
+            "name": "puuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Puuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrentGameResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/status/{platform}": {
+      "get": {
+        "tags": [
+          "Status"
+        ],
+        "summary": "Get Lol Status",
+        "operationId": "get_lol_status_api_v1_status__platform__get",
+        "parameters": [
+          {
+            "name": "platform",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Platform"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformStatusResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/player/{platform}/{game_name}/{tag_line}/summary": {
+      "get": {
+        "tags": [
+          "Player"
+        ],
+        "summary": "Get Player Summary",
+        "operationId": "get_player_summary_api_v2_player__platform___game_name___tag_line__summary_get",
+        "parameters": [
+          {
+            "name": "platform",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Platform"
+            }
+          },
+          {
+            "name": "game_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Game Name"
+            }
+          },
+          {
+            "name": "tag_line",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Tag Line"
+            }
+          },
+          {
+            "name": "match_start",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Match Start"
+            }
+          },
+          {
+            "name": "match_count",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 20,
+              "minimum": 1,
+              "default": 5,
+              "title": "Match Count"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayerSummaryResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Health Check",
+        "operationId": "health_check_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Health Check Health Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/version": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Version",
+        "operationId": "version_version_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Version Version Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccountResponse": {
+        "properties": {
+          "puuid": {
+            "type": "string",
+            "title": "Puuid"
+          },
+          "gameName": {
+            "type": "string",
+            "title": "Gamename"
+          },
+          "tagLine": {
+            "type": "string",
+            "title": "Tagline"
+          }
+        },
+        "type": "object",
+        "required": [
+          "puuid",
+          "gameName",
+          "tagLine"
+        ],
+        "title": "AccountResponse"
+      },
+      "ChampionRotationResponse": {
+        "properties": {
+          "freeChampionIds": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Freechampionids"
+          },
+          "freeChampionIdsForNewPlayers": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Freechampionidsfornewplayers"
+          },
+          "maxNewPlayerLevel": {
+            "type": "integer",
+            "title": "Maxnewplayerlevel"
+          }
+        },
+        "type": "object",
+        "required": [
+          "freeChampionIds",
+          "freeChampionIdsForNewPlayers",
+          "maxNewPlayerLevel"
+        ],
+        "title": "ChampionRotationResponse"
+      },
+      "CurrentGameResponse": {
+        "properties": {
+          "gameId": {
+            "type": "integer",
+            "title": "Gameid"
+          },
+          "gameType": {
+            "type": "string",
+            "title": "Gametype"
+          },
+          "gameStartTime": {
+            "type": "integer",
+            "title": "Gamestarttime"
+          },
+          "mapId": {
+            "type": "integer",
+            "title": "Mapid"
+          },
+          "gameLength": {
+            "type": "integer",
+            "title": "Gamelength"
+          },
+          "platformId": {
+            "type": "string",
+            "title": "Platformid"
+          },
+          "gameMode": {
+            "type": "string",
+            "title": "Gamemode"
+          },
+          "bannedChampions": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Bannedchampions"
+          },
+          "gameQueueConfigId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gamequeueconfigid"
+          },
+          "participants": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Participants"
+          },
+          "observers": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Observers"
+          }
+        },
+        "type": "object",
+        "required": [
+          "gameId",
+          "gameType",
+          "gameStartTime",
+          "mapId",
+          "gameLength",
+          "platformId",
+          "gameMode",
+          "bannedChampions",
+          "participants",
+          "observers"
+        ],
+        "title": "CurrentGameResponse"
+      },
+      "FeaturedGamesResponse": {
+        "properties": {
+          "gameList": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Gamelist"
+          },
+          "clientRefreshInterval": {
+            "type": "integer",
+            "title": "Clientrefreshinterval"
+          }
+        },
+        "type": "object",
+        "required": [
+          "gameList",
+          "clientRefreshInterval"
+        ],
+        "title": "FeaturedGamesResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "MatchDetailResponse": {
+        "properties": {
+          "match_id": {
+            "type": "string",
+            "title": "Match Id"
+          },
+          "game_creation": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Game Creation"
+          },
+          "game_duration": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Game Duration"
+          },
+          "game_mode": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Game Mode"
+          },
+          "queue_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Queue Id"
+          },
+          "map_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Map Id"
+          },
+          "game_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Game Version"
+          },
+          "winning_team_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Winning Team Id"
+          },
+          "participants": {
+            "items": {
+              "$ref": "#/components/schemas/MatchParticipantResponse"
+            },
+            "type": "array",
+            "title": "Participants"
+          },
+          "raw": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Raw"
+          }
+        },
+        "type": "object",
+        "required": [
+          "match_id",
+          "participants"
+        ],
+        "title": "MatchDetailResponse"
+      },
+      "MatchHistoryResponse": {
+        "properties": {
+          "match_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Match Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "match_ids"
+        ],
+        "title": "MatchHistoryResponse"
+      },
+      "MatchParticipantResponse": {
+        "properties": {
+          "puuid": {
+            "type": "string",
+            "title": "Puuid"
+          },
+          "riot_id_game_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Riot Id Game Name"
+          },
+          "riot_id_tagline": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Riot Id Tagline"
+          },
+          "summoner_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summoner Name"
+          },
+          "champion_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Champion Name"
+          },
+          "champion_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Champion Id"
+          },
+          "team_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team Id"
+          },
+          "team_position": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team Position"
+          },
+          "kills": {
+            "type": "integer",
+            "title": "Kills"
+          },
+          "deaths": {
+            "type": "integer",
+            "title": "Deaths"
+          },
+          "assists": {
+            "type": "integer",
+            "title": "Assists"
+          },
+          "kda": {
+            "type": "number",
+            "title": "Kda"
+          },
+          "win": {
+            "type": "boolean",
+            "title": "Win"
+          },
+          "gold_earned": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gold Earned"
+          },
+          "total_damage_dealt_to_champions": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Damage Dealt To Champions"
+          },
+          "vision_score": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vision Score"
+          },
+          "items": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "puuid",
+          "kills",
+          "deaths",
+          "assists",
+          "kda",
+          "win",
+          "items"
+        ],
+        "title": "MatchParticipantResponse"
+      },
+      "PlatformStatusResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "locales": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Locales"
+          },
+          "maintenances": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Maintenances"
+          },
+          "incidents": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Incidents"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "locales",
+          "maintenances",
+          "incidents"
+        ],
+        "title": "PlatformStatusResponse"
+      },
+      "PlayerSummaryResponse": {
+        "properties": {
+          "account": {
+            "$ref": "#/components/schemas/AccountResponse"
+          },
+          "summoner": {
+            "$ref": "#/components/schemas/SummonerResponse"
+          },
+          "ranked": {
+            "$ref": "#/components/schemas/RankedResponse"
+          },
+          "recent_matches": {
+            "$ref": "#/components/schemas/MatchHistoryResponse"
+          }
+        },
+        "type": "object",
+        "required": [
+          "account",
+          "summoner",
+          "ranked",
+          "recent_matches"
+        ],
+        "title": "PlayerSummaryResponse"
+      },
+      "RankedEntryResponse": {
+        "properties": {
+          "queue_type": {
+            "type": "string",
+            "title": "Queue Type"
+          },
+          "tier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tier"
+          },
+          "rank": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rank"
+          },
+          "league_points": {
+            "type": "integer",
+            "title": "League Points"
+          },
+          "wins": {
+            "type": "integer",
+            "title": "Wins"
+          },
+          "losses": {
+            "type": "integer",
+            "title": "Losses"
+          },
+          "win_rate": {
+            "type": "number",
+            "title": "Win Rate"
+          }
+        },
+        "type": "object",
+        "required": [
+          "queue_type",
+          "league_points",
+          "wins",
+          "losses",
+          "win_rate"
+        ],
+        "title": "RankedEntryResponse"
+      },
+      "RankedResponse": {
+        "properties": {
+          "queues": {
+            "items": {
+              "$ref": "#/components/schemas/RankedEntryResponse"
+            },
+            "type": "array",
+            "title": "Queues"
+          }
+        },
+        "type": "object",
+        "required": [
+          "queues"
+        ],
+        "title": "RankedResponse"
+      },
+      "SummonerResponse": {
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id"
+          },
+          "accountId": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Accountid"
+          },
+          "puuid": {
+            "type": "string",
+            "title": "Puuid"
+          },
+          "profileIconId": {
+            "type": "integer",
+            "title": "Profileiconid"
+          },
+          "revisionDate": {
+            "type": "integer",
+            "title": "Revisiondate"
+          },
+          "summonerLevel": {
+            "type": "integer",
+            "title": "Summonerlevel"
+          }
+        },
+        "type": "object",
+        "required": [
+          "puuid",
+          "profileIconId",
+          "revisionDate",
+          "summonerLevel"
+        ],
+        "title": "SummonerResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
